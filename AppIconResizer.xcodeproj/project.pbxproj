@@ -11,6 +11,10 @@
 		1E9087A1256158110047FFCC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9087A0256158110047FFCC /* ContentView.swift */; };
 		1E9087A3256158110047FFCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E9087A2256158110047FFCC /* Assets.xcassets */; };
 		1E9087A6256158110047FFCC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E9087A5256158110047FFCC /* Preview Assets.xcassets */; };
+		1EBC746125691CB800A3F46F /* OriginalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC746025691CB800A3F46F /* OriginalImageView.swift */; };
+		1EBC746425691F2100A3F46F /* ResizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC746325691F2100A3F46F /* ResizedImageView.swift */; };
+		1EBC746725691FF200A3F46F /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC746625691FF200A3F46F /* Modifiers.swift */; };
+		1EBC746E2569237000A3F46F /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC746D2569237000A3F46F /* InspectorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		1E9087A5256158110047FFCC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1E9087A7256158110047FFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E9087A8256158110047FFCC /* AppIconResizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppIconResizer.entitlements; sourceTree = "<group>"; };
+		1EBC746025691CB800A3F46F /* OriginalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalImageView.swift; sourceTree = "<group>"; };
+		1EBC746325691F2100A3F46F /* ResizedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizedImageView.swift; sourceTree = "<group>"; };
+		1EBC746625691FF200A3F46F /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		1EBC746D2569237000A3F46F /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				1E90879E256158110047FFCC /* AppIconResizerApp.swift */,
-				1E9087A0256158110047FFCC /* ContentView.swift */,
+				1EBC746B2569211F00A3F46F /* View */,
+				1EBC74692569210A00A3F46F /* Helper */,
 				1E9087A2256158110047FFCC /* Assets.xcassets */,
 				1E9087A7256158110047FFCC /* Info.plist */,
 				1E9087A8256158110047FFCC /* AppIconResizer.entitlements */,
@@ -69,6 +78,25 @@
 				1E9087A5256158110047FFCC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1EBC74692569210A00A3F46F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1EBC746625691FF200A3F46F /* Modifiers.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		1EBC746B2569211F00A3F46F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E9087A0256158110047FFCC /* ContentView.swift */,
+				1EBC746025691CB800A3F46F /* OriginalImageView.swift */,
+				1EBC746325691F2100A3F46F /* ResizedImageView.swift */,
+				1EBC746D2569237000A3F46F /* InspectorView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +168,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EBC746E2569237000A3F46F /* InspectorView.swift in Sources */,
 				1E9087A1256158110047FFCC /* ContentView.swift in Sources */,
+				1EBC746425691F2100A3F46F /* ResizedImageView.swift in Sources */,
 				1E90879F256158110047FFCC /* AppIconResizerApp.swift in Sources */,
+				1EBC746125691CB800A3F46F /* OriginalImageView.swift in Sources */,
+				1EBC746725691FF200A3F46F /* Modifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,7 +30,7 @@ struct OriginalImageView: View {
                     openPanel.canChooseFiles = true
                     openPanel.allowsMultipleSelection = false
                     openPanel.resolvesAliases = true
-                    openPanel.allowedFileTypes = ["png"]
+                    openPanel.allowedFileTypes = ["png", "jpg", "jpeg", "PNG", "JPEG", "JPG"]
                     
                     if (openPanel.runModal() == NSApplication.ModalResponse.OK) {
                         let result = openPanel.url

@@ -41,19 +41,22 @@ struct IconSize {
     }
     
     private static func iosSizes() -> [IconSize] {
+        // IconSize(points, x1, x2, x3)
         
         return [
-            // iPhone
+            // iPhone iOS 7-14
             IconSize(20, false, true, true),
             IconSize(29, false, true, true),
             IconSize(40, false, true, true),
             IconSize(60, false, true, true),
             
-            // iPad
-            IconSize(20, false, true, true),
+            // iPad iOS 7-14
+            IconSize(20, true, true, false),
             IconSize(29, true, true, false),
             IconSize(40, true, true, false),
             IconSize(76, true, true, false),
+            
+            // iPad Pro iOS 9-14
             IconSize(83.5, false, true, false),
             
             // App Store
@@ -63,29 +66,39 @@ struct IconSize {
     }
     
     private static func macosSizes() -> [IconSize] {
+        // IconSize(points, x1, x2, x3)
+        
         return [
             // macOS
-            IconSize(20, false, true, true),
-            IconSize(29, false, true, true),
-            IconSize(40, false, true, true),
-            IconSize(60, false, true, true),
+            IconSize(16, true, true, false),
+            IconSize(32, true, true, false),
+            IconSize(128, true, true, false),
+            IconSize(256, true, true, false),
+            IconSize(512, true, false, false),
             
             
-            // App Store
-            IconSize(1024, true, false, false)
+            // Mac App Store
+            IconSize(512, false, true, false)
         ]
     }
     
     private static func watchosSize() -> [IconSize] {
+        // IconSize(points, x1, x2, x3)
+        
         return [
             // watchOS
-            IconSize(20, false, true, true),
+            IconSize(24, false, true, false),
+            IconSize(27.5, false, true, false),
             IconSize(29, false, true, true),
-            IconSize(40, false, true, true),
-            IconSize(60, false, true, true),
+            IconSize(40, false, true, false),
+            IconSize(44, false, true, false),
+            IconSize(50, false, true, false),
+            IconSize(86, false, true, false),
+            IconSize(98, false, true, false),
+            IconSize(108, false, true, false),
             
             
-            // App Store
+            // Apple Watch App Store
             IconSize(1024, true, false, false)
         ]
     }
@@ -108,6 +121,7 @@ struct IconSize {
         
         
         if let cgimg = icon.cgImage(forProposedRect: &rect, context: nil, hints: nil) {
+            
             // scale CGImage
             let colorSpace = CGColorSpaceCreateDeviceRGB()
             let bitmapInfo = CGBitmapInfo (rawValue : CGImageAlphaInfo.premultipliedLast.rawValue)
@@ -120,11 +134,16 @@ struct IconSize {
                 space: colorSpace,
                 bitmapInfo : bitmapInfo.rawValue)
             context!.interpolationQuality = .high
+            
             let newrect = CGRect(x: 0, y: 0, width: newlength, height: newlength)
+            
             // draw scaled Bitmap
             context?.draw(cgimg, in: newrect)
+            
             // return as CGImage
-            return context?.makeImage() }
+            return context?.makeImage()
+            
+        }
             // something wrong
             return nil
         }
@@ -159,7 +178,7 @@ struct IconSize {
     // iconName(prefix: "icon_", sidelength: 40, type: X2)
     // return icon_40x40@2x .png
     
-    static func iconName(prefix: String, sideLength: Double, type rType: RetinaType) -> String {
+    static func iconName(prefix: String, sideLength: Double, type retinaType: RetinaType) -> String {
         // convert sidelength in NSNumber
         let sideNmb = NSNumber(value: sideLength)
         
@@ -172,8 +191,8 @@ struct IconSize {
         let txt = formatter.string(from: sideNmb)!
         
         var result = prefix + txt + "x" + txt
-        if rType == .x2 { result += "@2x" }
-        if rType == .x3 { result += "@3x" }
+        if retinaType == .x2 { result += "@2x" }
+        if retinaType == .x3 { result += "@3x" }
         result += ".png"
         
         return result

@@ -15,6 +15,7 @@
 		1EBC746425691F2100A3F46F /* ResizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC746325691F2100A3F46F /* ResizedImageView.swift */; };
 		1EBC746725691FF200A3F46F /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC746625691FF200A3F46F /* Modifiers.swift */; };
 		1EBC746E2569237000A3F46F /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC746D2569237000A3F46F /* InspectorView.swift */; };
+		1ED06B5925692C7E00B85C3F /* IconSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED06B5825692C7E00B85C3F /* IconSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		1EBC746325691F2100A3F46F /* ResizedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizedImageView.swift; sourceTree = "<group>"; };
 		1EBC746625691FF200A3F46F /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		1EBC746D2569237000A3F46F /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
+		1ED06B5825692C7E00B85C3F /* IconSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +63,10 @@
 		1E90879D256158110047FFCC /* AppIconResizer */ = {
 			isa = PBXGroup;
 			children = (
-				1E90879E256158110047FFCC /* AppIconResizerApp.swift */,
+				1ED06B5B25692C8400B85C3F /* Model */,
 				1EBC746B2569211F00A3F46F /* View */,
 				1EBC74692569210A00A3F46F /* Helper */,
+				1E90879E256158110047FFCC /* AppIconResizerApp.swift */,
 				1E9087A2256158110047FFCC /* Assets.xcassets */,
 				1E9087A7256158110047FFCC /* Info.plist */,
 				1E9087A8256158110047FFCC /* AppIconResizer.entitlements */,
@@ -93,10 +96,18 @@
 			children = (
 				1E9087A0256158110047FFCC /* ContentView.swift */,
 				1EBC746025691CB800A3F46F /* OriginalImageView.swift */,
-				1EBC746325691F2100A3F46F /* ResizedImageView.swift */,
 				1EBC746D2569237000A3F46F /* InspectorView.swift */,
+				1EBC746325691F2100A3F46F /* ResizedImageView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1ED06B5B25692C8400B85C3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1ED06B5825692C7E00B85C3F /* IconSize.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 			files = (
 				1EBC746E2569237000A3F46F /* InspectorView.swift in Sources */,
 				1E9087A1256158110047FFCC /* ContentView.swift in Sources */,
+				1ED06B5925692C7E00B85C3F /* IconSize.swift in Sources */,
 				1EBC746425691F2100A3F46F /* ResizedImageView.swift in Sources */,
 				1E90879F256158110047FFCC /* AppIconResizerApp.swift in Sources */,
 				1EBC746125691CB800A3F46F /* OriginalImageView.swift in Sources */,

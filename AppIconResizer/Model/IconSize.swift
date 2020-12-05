@@ -18,7 +18,8 @@ enum RetinaType {
 }
 
 
-struct IconSize {
+struct IconSize: Identifiable, Hashable {
+    var id = UUID()
     var sideLength: Double
     var x1, x2, x3: Bool
     
@@ -166,9 +167,9 @@ struct IconSize {
     
     private func savePNG(_ img: CGImage, in fName: String) -> Bool {
         let url = URL(fileURLWithPath: fName)
-        if let dest = CGImageDestinationCreateWithURL(url as CFURL, kUTTypePNG, 1, nil) {
-            CGImageDestinationAddImage(dest, img, nil)
-            return CGImageDestinationFinalize(dest)
+        if let imageDestination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypePNG, 1, nil) {
+            CGImageDestinationAddImage(imageDestination, img, nil)
+            return CGImageDestinationFinalize(imageDestination)
         }
         // something wrong
         return false

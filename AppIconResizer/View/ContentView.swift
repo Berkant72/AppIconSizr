@@ -16,30 +16,30 @@ struct ContentView: View {
     @State private var isOriginalImage: Bool = false
     @State private var choose: Int = 0
     @State private var originalImage: NSImage?
+    @State private var iconsForiOS: Bool = true
+    @State private var iconsForMacOS: Bool = false
+    @State private var iconsForWatchOS: Bool = false
+    
+    var iconSize: IconSize!
+    var retinaType: RetinaType!
     
     // EFFICIENT GRID DEFINITION
     let gridLayout: [GridItem] = Array(repeating: GridItem(.flexible()), count: 3)
-    
-    var iconSize: IconSize?
-    
-//    var iconSize: IconSize!
-//    var rtype: RetinaType!
+
     var iconset = IconSet.iOS
     let iconsFor = ["iOS", "macOS", "watchOS"]
-    var origImg: NSImageView!
-    var origLabel: NSTextField!
+    var imageView: NSImageView!
+    var imageName: NSTextField!
     
     
     // Icon in voller Auflösung (linke Seite)
     var icon: NSImage! {
         didSet {
-            origImg.image = icon
-            origLabel.stringValue = "\(Int(icon.size.width))x\(Int(icon.size.height))"
-            
-            //            iconTable.reloadData ()
-            
+            imageView.image = icon
+            imageName.stringValue = "\(Int(icon.size.width))x\(Int(icon.size.height))"
         }
     }
+    
     
     // MARK: - METHODS
     
@@ -75,7 +75,6 @@ struct ContentView: View {
             NSWorkspace.shared.activateFileViewerSelecting( [url] )
         }
     }
-    
     
     func getImageFromFinder() {
         
@@ -127,40 +126,6 @@ struct ContentView: View {
         }
     }
     
-//    // Icon mit Beschriftung erzeugen
-//    private func makeLabeledIcon(_ offset: CGFloat,
-//                                 _ width: CGFloat,
-//                                 _ isize: IconSize,
-//                                 _ rtype: RetinaType,
-//                                 _ txt: String) -> NSView
-//    {
-//      let rect = CGRect(x: offset, y: 0,
-//                        width: width, height: cellheight)
-//      let iconview = IconCellView(frame: rect)
-//      // IconCellView-spezifische Eigenschaften
-//      iconview.isize = isize
-//      iconview.rtype = rtype
-//      iconview.icon = icon
-//
-//      // Textfeld zur Beschriftung
-//      let txtrect = CGRect(x: 0, y: 0, width: width, height: 20)
-//      let lbl = NSTextField(frame: txtrect)
-//      lbl.stringValue = txt
-//      lbl.alignment = .center
-//      lbl.isEditable = false
-//      lbl.isBezeled = false
-//      lbl.drawsBackground = false
-//      iconview.addSubview(lbl)
-//
-//      // Image-View mit Icon
-//      let side = cellheight - 30 // Icon-Größe
-//      let iconrect = CGRect(x: (width-side) / 2, y: 25,
-//                            width: side, height: side)
-//      let img = NSImageView(frame: iconrect)
-//      img.image = icon ?? NSImage(named: NSImage.Name(rawValue: "file_question"))
-//      iconview.addSubview(img)
-//      return iconview
-//    }
     
     // MARK: - BODY
     
@@ -237,10 +202,23 @@ struct ContentView: View {
 //                    if isOriginalImage {
                         
                         LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
-                            ForEach(0 ..< 12) { item in
-                                Image(systemName: "photo")
-                                    .font(.system(size: 100))
-                                    .frame(width: 100, height: 100, alignment: .center)
+                            ForEach(0 ..< iconSizes.count) { item in
+                                VStack {
+                                    if isOriginalImage {
+                                        Image(nsImage: originalImage!)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 50, height: 50, alignment: .center)
+                                            .cornerRadius(10.0)
+                                            .padding()
+                                    } else {
+                                        Image(systemName: "photo")
+                                            .font(.system(size: 50))
+                                            .frame(width: 80, height: 80, alignment: .center)
+                                        Text("iOS 20pt")
+                                            .font(.title3)
+                                    }
+                                }
                             }
                             
                         }

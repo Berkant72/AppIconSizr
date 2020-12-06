@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+//enum OSIcons: Int, CaseIterable, Identifiable {
+//
+//    case iOS = 0
+//    case macOS = 1
+//    case watchOS = 2
+//
+//    var id: Int { self.rawValue }
+//}
+
 struct ContentView: View {
     
     // MARK: - PROPERTIES
@@ -14,14 +23,14 @@ struct ContentView: View {
     @State private var tempDirectory: String = ""
     @State private var iconSizes = IconSize.getSizes(set: .iOS)
     @State private var isOriginalImage: Bool = false
-    @State private var choose: Int = 0
+    @State private var setOs: Int = 0
     @State private var originalImage: NSImage?
     @State private var iconsForiOS: Bool = true
     @State private var iconsForMacOS: Bool = false
     @State private var iconsForWatchOS: Bool = false
     
-    var iconSize: IconSize!
-    var retinaType: RetinaType!
+//    var iconSize: IconSize!
+//    var retinaType: RetinaType!
     
     // EFFICIENT GRID DEFINITION
     let gridLayout: [GridItem] = Array(repeating: GridItem(.flexible()), count: 3)
@@ -37,6 +46,23 @@ struct ContentView: View {
         didSet {
             imageView.image = icon
             imageName.stringValue = "\(Int(icon.size.width))x\(Int(icon.size.height))"
+        }
+    }
+    
+    func loadIcons(_ forOS: Int) -> [IconSize] {
+        
+        switch forOS {
+        case 0:
+            print("Choose iOS")
+            return IconSize.getSizes(set: .iOS)
+        case 1:
+            print("Choose macOS")
+            return IconSize.getSizes(set: .macOS)
+        case 2:
+            print("Choose watchOS")
+            return IconSize.getSizes(set: .watchOS)
+        default:
+            return IconSize.getSizes(set: .iOS)
         }
     }
     
@@ -61,7 +87,7 @@ struct ContentView: View {
         
         if let url = openFile.url {
             let folder = url.path
-            for iconSize in iconSizes {
+            for iconSize in loadIcons(setOs) {
                 if iconSize.x1 { _ = iconSize.save(originalImage!, type: RetinaType.x1, folder: folder)
                 }
                 if iconSize.x2 { _ = iconSize.save(originalImage!, type: RetinaType.x2, folder: folder)
@@ -170,7 +196,7 @@ struct ContentView: View {
                     Text("Choose your icons!")
                     VStack(alignment: .leading, spacing: 10) {
                         
-                        Picker("Icons for", selection: $choose) {
+                        Picker("Icons for", selection: $setOs) {
                             ForEach(0 ..< iconsFor.count) { item in
                                 Text("\(iconsFor[item])").tag(item)
                             }

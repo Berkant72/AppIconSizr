@@ -37,7 +37,7 @@ struct IconSize: Identifiable, Hashable {
         case .macOS:
             return IconSize.macosSizes()
         case .watchOS:
-            return IconSize.watchosSize()
+            return IconSize.watchosSizes()
         }
     }
     
@@ -83,7 +83,7 @@ struct IconSize: Identifiable, Hashable {
         ]
     }
     
-    private static func watchosSize() -> [IconSize] {
+    private static func watchosSizes() -> [IconSize] {
         // IconSize(points, x1, x2, x3)
         
         return [

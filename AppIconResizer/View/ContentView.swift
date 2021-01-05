@@ -29,12 +29,12 @@ struct ContentView: View {
     @State private var iconsForMacOS: Bool = false
     @State private var iconsForWatchOS: Bool = false
     
-//    var iconSize: IconSize!
-//    var retinaType: RetinaType!
+    //    var iconSize: IconSize!
+    //    var retinaType: RetinaType!
     
     // EFFICIENT GRID DEFINITION
     let gridLayout: [GridItem] = Array(repeating: GridItem(.flexible()), count: 3)
-
+    
     var iconset = IconSet.iOS
     let iconsFor = ["iOS", "macOS", "watchOS"]
     var imageView: NSImageView!
@@ -158,12 +158,12 @@ struct ContentView: View {
     var body: some View {
         
         HStack {
-            // ORIGINAL IMAGES
+            // MARK: ORIGINAL IMAGES
             VStack {
                 
                 Text("Original Image")
                     .modifier(PaneTitleModifier())
-                    
+                
                 Divider()
                 Spacer()
                 
@@ -176,7 +176,6 @@ struct ContentView: View {
                     }) {
                         Text("Click to add your original Image here!")
                             .font(.caption)
-                        
                     }
                     
                     if isOriginalImage {
@@ -187,8 +186,7 @@ struct ContentView: View {
                             .cornerRadius(10.0)
                             .padding()
                     } else {
-                        Image(systemName: "photo")
-                            .font(.system(size: 44))
+                        PlacerHolderImageView()
                     }
                     
                     Spacer()
@@ -213,42 +211,42 @@ struct ContentView: View {
             
             Divider()
             
-            // RESIZED IMAGES
+            // MARK: RESIZED IMAGES
             VStack {
                 Text("Resized Images")
                     .modifier(PaneTitleModifier())
-                    
+                
                 Divider()
                 
                 
                 VStack {
                     Spacer()
                     
-                                    
-//                    if isOriginalImage {
-                        
-                        LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
-                            ForEach(0 ..< iconSizes.count) { item in
-                                VStack {
-                                    if isOriginalImage {
-                                        Image(nsImage: originalImage!)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 50, height: 50, alignment: .center)
-                                            .cornerRadius(10.0)
-                                            .padding()
-                                    } else {
-                                        Image(systemName: "photo")
-                                            .font(.system(size: 50))
-                                            .frame(width: 80, height: 80, alignment: .center)
-                                        Text("iOS 20pt")
-                                            .font(.title3)
-                                    }
+                    
+                    //                    if isOriginalImage {
+                    
+                    LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
+                        ForEach(0 ..< iconSizes.count) { item in
+                            VStack {
+                                if isOriginalImage {
+                                    Image(nsImage: originalImage!)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 50, height: 50, alignment: .center)
+                                        .cornerRadius(10.0)
+                                        .padding()
+                                } else {
+                                    Image(systemName: "photo")
+                                        .font(.system(size: 50))
+                                        .frame(width: 80, height: 80, alignment: .center)
+                                    Text("iOS  20pt")
+                                        .font(.title3)
                                 }
                             }
-                            
                         }
-//                    }
+                        
+                    }
+                    //                    }
                     
                     Spacer()
                     
@@ -273,6 +271,15 @@ struct ContentView: View {
         })
     } //: BODY
     
+}
+struct PlacerHolderImageView: View {
+    var body: some View {
+        Image("AppResizerIcon")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 44, height: 44)
+        // .font(.system(size: 44))
+    }
 }
 
 // MARK: - PREVIEW

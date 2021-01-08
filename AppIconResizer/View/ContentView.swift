@@ -25,9 +25,9 @@ struct ContentView: View {
     @State private var isOriginalImage: Bool = false
     @State private var setOs: Int = 0
     @State private var originalImage: NSImage?
-    @State private var iconsForiOS: Bool = true
-    @State private var iconsForMacOS: Bool = false
-    @State private var iconsForWatchOS: Bool = false
+//    @State private var iconsForiOS: Bool = true
+//    @State private var iconsForMacOS: Bool = false
+//    @State private var iconsForWatchOS: Bool = false
     
     //    var iconSize: IconSize!
     //    var retinaType: RetinaType!
@@ -36,7 +36,7 @@ struct ContentView: View {
     let gridLayout: [GridItem] = Array(repeating: GridItem(.flexible()), count: 3)
     
     var iconset = IconSet.iOS
-    let iconsFor = ["iOS", "macOS", "watchOS"]
+//    let iconsFor = ["iOS", "macOS", "watchOS"]
     var imageView: NSImageView!
     var imageName: NSTextField!
     
@@ -102,30 +102,7 @@ struct ContentView: View {
         }
     }
     
-    func getImageFromFinder() {
-        
-        let openPanel = NSOpenPanel()
-        openPanel.worksWhenModal = true
-        openPanel.canChooseDirectories = true
-        openPanel.canChooseFiles = true
-        openPanel.allowsMultipleSelection = false
-        openPanel.resolvesAliases = true
-        openPanel.allowedFileTypes = ["png", "jpg", "jpeg", "PNG", "JPEG", "JPG"]
-        
-        if (openPanel.runModal() == NSApplication.ModalResponse.OK) {
-            let result = openPanel.url
-            if (result != nil) {
-                let path: String = result!.path
-                print(path)
-                originalImage = NSImage(contentsOf: URL(fileURLWithPath: path))!
-                
-                isOriginalImage = true
-            } else {
-                // User clicked on cancel
-                return
-            }
-        }
-    }
+    
     
     func createNewDirectory() {
         // create a temporary directory at launch
@@ -156,7 +133,10 @@ struct ContentView: View {
     // MARK: - BODY
     
     var body: some View {
-        
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color(red: 49/255, green: 39/255, blue: 176/255, opacity: 1), Color(red: 176/255, green: 233/255, blue: 86/255, opacity: 1)]), startPoint: .leading, endPoint: .trailing)
+                .edgesIgnoringSafeArea(.all)
+            
         HStack {
             // MARK: ORIGINAL IMAGES
             VStack {
@@ -167,53 +147,11 @@ struct ContentView: View {
                 Divider()
                 Spacer()
                 
-                VStack(alignment: .center, spacing: 20) {
-                    Spacer()
-                    
-                    Button(action: {
-                        getImageFromFinder()
-                        
-                    }) {
-                        Text("Click to add your original image here!")
-                            .font(.caption)
-                    }
-                    Text("For best result use\nan image with 1024 x 1024 pt.")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                    
-                    if isOriginalImage {
-                        Image(nsImage: originalImage!)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 100, alignment: .center)
-                            .cornerRadius(10.0)
-                            .padding()
-                    } else {
-                        PlacerHolderImageView()
-                    }
-                    
-                    Spacer()
-                    
-                    Text("Choose your icon set!")
-                    VStack(alignment: .leading, spacing: 10) {
-                        
-                        Picker("Icons for", selection: $setOs) {
-                            ForEach(0 ..< iconsFor.count) { item in
-                                Text("\(iconsFor[item])").tag(item)
-                            }
-                        }
-                        .padding(.horizontal, 12)
-                        .pickerStyle(SegmentedPickerStyle())
-                        
-                        Spacer()
-                    } //: VSTACK
-                } //: VSTACK
-                
-            } //: VSTACK
-            .frame(minWidth: 200, idealWidth: 250, maxWidth: 250, minHeight: 150, idealHeight: 200, maxHeight: .infinity)
+                OriginalImageView(isOriginalImage: $isOriginalImage, originalImage: $originalImage, setOs: $setOs)
+            }
             
             Divider()
-            
+          
             // MARK: RESIZED IMAGES
             VStack {
                 Text("Resized Images")
@@ -265,16 +203,16 @@ struct ContentView: View {
                 }
             }
             .frame(minWidth: 400, idealWidth: 500, maxWidth: .infinity, minHeight: 150, idealHeight: 500, maxHeight: .infinity)
-            
-            
         } //: HSTACK
         .frame(minWidth: 800, idealWidth: 1000, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity, alignment: .center)
         .onAppear(perform: {
             createNewDirectory()
         })
+    }
     } //: BODY
-    
 }
+    
+    
 struct PlacerHolderImageView: View {
     var body: some View {
         Image("AppResizerIcon")
@@ -285,11 +223,13 @@ struct PlacerHolderImageView: View {
     }
 }
 
+
+
 // MARK: - PREVIEW
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

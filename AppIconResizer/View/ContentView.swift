@@ -174,9 +174,12 @@ struct ContentView: View {
                         getImageFromFinder()
                         
                     }) {
-                        Text("Click to add your original Image here!")
+                        Text("Click to add your original image here!")
                             .font(.caption)
                     }
+                    Text("For best result use\nan image with 1024 x 1024 pt.")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
                     
                     if isOriginalImage {
                         Image(nsImage: originalImage!)
@@ -191,7 +194,7 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    Text("Choose your icons!")
+                    Text("Choose your icon set!")
                     VStack(alignment: .leading, spacing: 10) {
                         
                         Picker("Icons for", selection: $setOs) {

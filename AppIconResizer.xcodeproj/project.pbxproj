@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E3CEE58257CF33600C6C421 /* IconCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3CEE57257CF33600C6C421 /* IconCellView.swift */; };
+		1E8DBD6725A88A5300025C71 /* PlaceholderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DBD6625A88A5300025C71 /* PlaceholderImageView.swift */; };
 		1E90879F256158110047FFCC /* AppIconResizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E90879E256158110047FFCC /* AppIconResizerApp.swift */; };
 		1E9087A1256158110047FFCC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9087A0256158110047FFCC /* ContentView.swift */; };
 		1E9087A3256158110047FFCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E9087A2256158110047FFCC /* Assets.xcassets */; };
@@ -15,12 +16,12 @@
 		1EBC746125691CB800A3F46F /* OriginalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC746025691CB800A3F46F /* OriginalImageView.swift */; };
 		1EBC746425691F2100A3F46F /* ResizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC746325691F2100A3F46F /* ResizedImageView.swift */; };
 		1EBC746725691FF200A3F46F /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC746625691FF200A3F46F /* Modifiers.swift */; };
-		1EBC746E2569237000A3F46F /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC746D2569237000A3F46F /* InspectorView.swift */; };
 		1ED06B5925692C7E00B85C3F /* IconSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED06B5825692C7E00B85C3F /* IconSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E3CEE57257CF33600C6C421 /* IconCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCellView.swift; sourceTree = "<group>"; };
+		1E8DBD6625A88A5300025C71 /* PlaceholderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderImageView.swift; sourceTree = "<group>"; };
 		1E90879B256158110047FFCC /* AppIconResizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppIconResizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E90879E256158110047FFCC /* AppIconResizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconResizerApp.swift; sourceTree = "<group>"; };
 		1E9087A0256158110047FFCC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		1EBC746025691CB800A3F46F /* OriginalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalImageView.swift; sourceTree = "<group>"; };
 		1EBC746325691F2100A3F46F /* ResizedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizedImageView.swift; sourceTree = "<group>"; };
 		1EBC746625691FF200A3F46F /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
-		1EBC746D2569237000A3F46F /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
 		1ED06B5825692C7E00B85C3F /* IconSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,9 +98,9 @@
 			children = (
 				1E9087A0256158110047FFCC /* ContentView.swift */,
 				1EBC746025691CB800A3F46F /* OriginalImageView.swift */,
-				1E3CEE57257CF33600C6C421 /* IconCellView.swift */,
-				1EBC746D2569237000A3F46F /* InspectorView.swift */,
 				1EBC746325691F2100A3F46F /* ResizedImageView.swift */,
+				1E3CEE57257CF33600C6C421 /* IconCellView.swift */,
+				1E8DBD6625A88A5300025C71 /* PlaceholderImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,7 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EBC746E2569237000A3F46F /* InspectorView.swift in Sources */,
+				1E8DBD6725A88A5300025C71 /* PlaceholderImageView.swift in Sources */,
 				1E3CEE58257CF33600C6C421 /* IconCellView.swift in Sources */,
 				1E9087A1256158110047FFCC /* ContentView.swift in Sources */,
 				1ED06B5925692C7E00B85C3F /* IconSize.swift in Sources */,

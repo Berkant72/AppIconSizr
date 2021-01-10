@@ -39,6 +39,7 @@ struct ContentView: View {
                 
                 OriginalImageView(setOs: $setOs, originalImage: $originalImage, isOriginalImage: $isOriginalImage)
             }
+            .frame(minWidth: 300, idealWidth: 400, maxWidth: 500, minHeight: 150, idealHeight: 200, maxHeight: .infinity)
             
             Divider()
             
@@ -57,9 +58,9 @@ struct ContentView: View {
                     
                 }
             } //: VSTACK
-            .frame(minWidth: 400, idealWidth: 600, maxWidth: .infinity, minHeight: 150, idealHeight: 500, maxHeight: .infinity)
+            .frame(minWidth: 600, idealWidth: 800, maxWidth: .infinity, minHeight: 150, idealHeight: 500, maxHeight: .infinity)
         } //: HSTACK
-        .frame(minWidth: 800, idealWidth: 1000, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity, alignment: .center)
+        .frame(minWidth: 1000, idealWidth: 1200, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity, alignment: .center)
         .onAppear(perform: {
             //createNewDirectory()
         })

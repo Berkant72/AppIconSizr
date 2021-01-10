@@ -26,15 +26,53 @@ struct ResizedImageView: View {
     var body: some View {
         VStack {
             LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
-                ForEach(0 ..< iconSizes.count) { item in
+                ForEach(loadIcons(setOs)) { item in
                     VStack {
                         if isOriginalImage {
-                            Image(nsImage: originalImage!)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 50, alignment: .center)
-                                .cornerRadius(10.0)
-                                .padding()
+                            HStack {
+                                VStack {
+                                    if item.x1 == true {
+                                        Image(nsImage: originalImage!)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 50, height: 50, alignment: .center)
+                                            .cornerRadius(10.0)
+                                            .padding()
+                                        
+                                        Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x1))")
+                                            .font(.footnote)
+                                    }
+                                }
+                                VStack {
+                                    if item.x2 == true {
+                                        Image(nsImage: originalImage!)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 50, height: 50, alignment: .center)
+                                            .cornerRadius(10.0)
+                                            .padding()
+                                        
+                                        Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x2))")
+                                            .font(.footnote)
+                                    }
+                                }
+                                VStack {
+                                    if item.x3 == true {
+                                        Image(nsImage: originalImage!)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 50, height: 50, alignment: .center)
+                                            .cornerRadius(10.0)
+                                            .padding()
+                                        
+                                        Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x3))")
+                                            .font(.footnote)
+                                    }
+                                }
+                                
+                            }
+                            
+                            
                         } else {
                             Image(systemName: "photo")
                                 .font(.system(size: 50))
@@ -44,7 +82,6 @@ struct ResizedImageView: View {
                         }
                     }
                 }
-                
             }
             
             Spacer()
@@ -58,7 +95,6 @@ struct ResizedImageView: View {
                 .padding()
             }
         }
-        
     }
     
     // MARK: - METHODS
@@ -67,13 +103,10 @@ struct ResizedImageView: View {
         
         switch forOS {
         case 0:
-            print("Choose iOS")
             return IconSize.getSizes(set: .iOS)
         case 1:
-            print("Choose macOS")
             return IconSize.getSizes(set: .macOS)
         case 2:
-            print("Choose watchOS")
             return IconSize.getSizes(set: .watchOS)
         default:
             return IconSize.getSizes(set: .iOS)

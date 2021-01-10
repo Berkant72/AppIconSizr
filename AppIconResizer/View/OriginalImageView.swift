@@ -63,7 +63,6 @@ struct OriginalImageView: View {
                 Spacer()
             } //: VSTACK
         } //: VSTACK
-        .frame(minWidth: 200, idealWidth: 250, maxWidth: 300, minHeight: 150, idealHeight: 200, maxHeight: .infinity)
     }
     
     // MARK: - METHODS

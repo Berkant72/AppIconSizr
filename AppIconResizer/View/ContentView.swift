@@ -39,7 +39,7 @@ struct ContentView: View {
                 
                 OriginalImageView(setOs: $setOs, originalImage: $originalImage, isOriginalImage: $isOriginalImage)
             }
-            .frame(minWidth: 300, idealWidth: 400, maxWidth: 500, minHeight: 150, idealHeight: 200, maxHeight: .infinity)
+            .frame(minWidth: 200, idealWidth: 250, maxWidth: 300, minHeight: 150, idealHeight: 200, maxHeight: .infinity)
             
             Divider()
             

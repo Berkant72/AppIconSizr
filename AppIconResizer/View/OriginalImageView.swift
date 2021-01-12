@@ -58,6 +58,7 @@ struct OriginalImageView: View {
                     }
                 }
                 .padding(.horizontal, 12)
+                .frame(width: 150)
                 .pickerStyle(SegmentedPickerStyle())
                 
                 Spacer()

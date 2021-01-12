@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlaceholderImageView: View {
     var body: some View {
-        Image("AppResizerIcon")
+        Image(systemName: "photo")
             .resizable()
             .scaledToFit()
             .frame(width: 44, height: 44)

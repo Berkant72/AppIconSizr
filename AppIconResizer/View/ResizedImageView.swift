@@ -27,62 +27,52 @@ struct ResizedImageView: View {
         VStack {
             LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
                 ForEach(loadIcons(setOs)) { item in
-                    VStack {
-                        if isOriginalImage {
-                            HStack {
-                                VStack {
-                                    if item.x1 == true {
-                                        Image(nsImage: originalImage!)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 50, height: 50, alignment: .center)
-                                            .cornerRadius(10.0)
-                                            .padding()
-                                        
-                                        Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x1))")
-                                            .font(.footnote)
-                                    }
-                                }
-                                VStack {
-                                    if item.x2 == true {
-                                        Image(nsImage: originalImage!)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 50, height: 50, alignment: .center)
-                                            .cornerRadius(10.0)
-                                            .padding()
-                                        
-                                        Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x2))")
-                                            .font(.footnote)
-                                    }
-                                }
-                                VStack {
-                                    if item.x3 == true {
-                                        Image(nsImage: originalImage!)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 50, height: 50, alignment: .center)
-                                            .cornerRadius(10.0)
-                                            .padding()
-                                        
-                                        Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x3))")
-                                            .font(.footnote)
-                                    }
-                                }
+                    if isOriginalImage {
+                        if item.x1 == true {
+                            VStack {
+                                Image(nsImage: originalImage!)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 44, height: 44, alignment: .center)
+                                    .cornerRadius(10.0)
                                 
+                                Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x1))")
+                                    .font(.footnote)
                             }
-                            
-                            
-                        } else {
-                            Image(systemName: "photo")
-                                .font(.system(size: 50))
-                                .frame(width: 80, height: 80, alignment: .center)
-                            Text("iOS  20pt")
-                                .font(.title3)
                         }
+                        
+                        if item.x2 == true {
+                            VStack {
+                                Image(nsImage: originalImage!)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 44, height: 44, alignment: .center)
+                                    .cornerRadius(10.0)
+                                
+                                Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x2))")
+                                    .font(.footnote)
+                            }
+                        }
+                        
+                        if item.x3 == true {
+                            VStack {
+                                Image(nsImage: originalImage!)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 44, height: 44, alignment: .center)
+                                    .cornerRadius(10.0)
+                                
+                                Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x3))")
+                                    .font(.footnote)
+                            }
+                        }
+                    } else {
+                        Image(systemName: "photo")
+                            .font(.system(size: 44))
+                            .frame(width: 80, height: 80, alignment: .center)
                     }
                 }
-            }
+            } // : LAZYVGRID
             
             Spacer()
             
@@ -94,7 +84,7 @@ struct ResizedImageView: View {
                 }
                 .padding()
             }
-        }
+        } // : VSTACK
     }
     
     // MARK: - METHODS

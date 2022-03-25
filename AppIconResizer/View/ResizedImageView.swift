@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ResizedImageView: View {
     
-    // MARK: - PROPERTIES
+    // MARK: - Properties
     
     @State private var iconSizes = IconSize.getSizes(set: .iOS)
     @State private var tempDirectory: String = ""
@@ -72,7 +72,7 @@ struct ResizedImageView: View {
                             .frame(width: 80, height: 80, alignment: .center)
                     }
                 }
-            } // : LAZYVGRID
+            }
             
             Spacer()
             
@@ -84,10 +84,10 @@ struct ResizedImageView: View {
                 }
                 .padding()
             }
-        } // : VSTACK
+        }
     }
     
-    // MARK: - METHODS
+    // MARK: - Methods
     
     func loadIcons(_ forOS: Int) -> [IconSize] {
         
@@ -95,8 +95,10 @@ struct ResizedImageView: View {
         case 0:
             return IconSize.getSizes(set: .iOS)
         case 1:
-            return IconSize.getSizes(set: .macOS)
+            return IconSize.getSizes(set: .iPadOS)
         case 2:
+            return IconSize.getSizes(set: .macOS)
+        case 3:
             return IconSize.getSizes(set: .watchOS)
         default:
             return IconSize.getSizes(set: .iOS)

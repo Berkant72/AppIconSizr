@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum IconSet {
-    case iOS, macOS, watchOS
+    case iOS, iPadOS, macOS, watchOS
 }
 
 enum RetinaType {
@@ -34,6 +34,8 @@ struct IconSize: Identifiable, Hashable {
         switch set {
         case .iOS:
             return IconSize.iosSizes()
+        case .iPadOS:
+            return IconSize.ipadosSizes()
         case .macOS:
             return IconSize.macosSizes()
         case .watchOS:
@@ -41,23 +43,46 @@ struct IconSize: Identifiable, Hashable {
         }
     }
     
+//    private static func iosSizes() -> [IconSize] {
+//        // IconSize(points, x1, x2, x3)
+//        iOS and iPadOS
+//        return [
+//            IconSize(20, true, true, true),
+//            IconSize(29, true, true, true),
+//            IconSize(40, true, true, true),
+//            IconSize(60, false, true, true),
+//            IconSize(76, true, true, false),
+//            IconSize(83.5, false, true, false),
+//
+//            // App Store
+//            IconSize(1024, true, false, false)
+//        ]
+//
+//    }
+    
     private static func iosSizes() -> [IconSize] {
         // IconSize(points, x1, x2, x3)
         
         return [
-            // iPhone iOS 7-14
             IconSize(20, false, true, true),
             IconSize(29, false, true, true),
             IconSize(40, false, true, true),
             IconSize(60, false, true, true),
             
-            // iPad iOS 7-14
+            // App Store
+            IconSize(1024, true, false, false)
+        ]
+        
+    }
+    
+    private static func ipadosSizes() -> [IconSize] {
+        // IconSize(points, x1, x2, x3)
+        
+        return [
             IconSize(20, true, true, false),
             IconSize(29, true, true, false),
             IconSize(40, true, true, false),
             IconSize(76, true, true, false),
-            
-            // iPad Pro iOS 9-14
             IconSize(83.5, false, true, false),
             
             // App Store
@@ -70,16 +95,14 @@ struct IconSize: Identifiable, Hashable {
         // IconSize(points, x1, x2, x3)
         
         return [
-            // macOS
             IconSize(16, true, true, false),
             IconSize(32, true, true, false),
             IconSize(128, true, true, false),
             IconSize(256, true, true, false),
-            IconSize(512, true, false, false),
-            
+            IconSize(512, true, true, false),
             
             // Mac App Store
-            IconSize(512, false, true, false)
+            IconSize(1024, true, false, false)
         ]
     }
     
@@ -87,17 +110,19 @@ struct IconSize: Identifiable, Hashable {
         // IconSize(points, x1, x2, x3)
         
         return [
-            // watchOS
             IconSize(24, false, true, false),
             IconSize(27.5, false, true, false),
             IconSize(29, false, true, true),
+            IconSize(33, false, true, false),
             IconSize(40, false, true, false),
             IconSize(44, false, true, false),
+            IconSize(46, false, true, false),
             IconSize(50, false, true, false),
+            IconSize(51, false, true, false),
             IconSize(86, false, true, false),
             IconSize(98, false, true, false),
             IconSize(108, false, true, false),
-            
+            IconSize(117, false, true, false),
             
             // Apple Watch App Store
             IconSize(1024, true, false, false)

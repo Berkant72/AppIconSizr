@@ -9,15 +9,15 @@ import SwiftUI
 
 struct OriginalImageView: View {
     
-    // MARK: - PROPERTIES
+    // MARK: - Properties
     
     @Binding var setOs: Int
     @Binding var originalImage: NSImage?
     @Binding var isOriginalImage: Bool
     
-    let iconsFor = ["iOS", "macOS", "watchOS"]
+    let iconsFor = ["iOS", "iPadOS", "macOS", "watchOS"]
     
-    // MARK: - BODY
+    // MARK: - Body
     
     var body: some View {
         
@@ -62,11 +62,11 @@ struct OriginalImageView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 
                 Spacer()
-            } //: VSTACK
-        } //: VSTACK
+            }
+        }
     }
     
-    // MARK: - METHODS
+    // MARK: - Methods
     
     func getImageFromFinder() {
         

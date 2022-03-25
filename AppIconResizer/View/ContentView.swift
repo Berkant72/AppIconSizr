@@ -18,17 +18,17 @@ import SwiftUI
 
 struct ContentView: View {
     
-    // MARK: - PROPERTIES
+    // MARK: - Properties
     
     @State private var setOs: Int = 0
     @State private var originalImage: NSImage?
     @State private var isOriginalImage: Bool = false
     
-    // MARK: - BODY
+    // MARK: - Body
     
     var body: some View {
         HStack {
-            // MARK: ORIGINAL IMAGES
+            // MARK: Original images
             VStack {
                 
                 Text("Original Image")
@@ -43,7 +43,7 @@ struct ContentView: View {
             
             Divider()
             
-            // MARK: RESIZED IMAGES
+            // MARK: Resized images
             VStack {
                 Text("Resized Images")
                     .modifier(PaneTitleModifier())
@@ -57,12 +57,12 @@ struct ContentView: View {
                     ResizedImageView(setOs: $setOs, originalImage: $originalImage, isOriginalImage: $isOriginalImage)
                     
                 }
-            } //: VSTACK
+            }
             .frame(minWidth: 600, idealWidth: 800, maxWidth: .infinity, minHeight: 150, idealHeight: 500, maxHeight: .infinity)
-        } //: HSTACK
+        } 
         .frame(minWidth: 1000, idealWidth: 1200, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity, alignment: .center)
         .onAppear(perform: {
             //createNewDirectory()
         })
-    } //: BODY
+    }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum IconSet {
+enum OperatingSystem {
     case iOS, iPadOS, macOS, watchOS
 }
 
@@ -30,7 +30,7 @@ struct IconSize: Identifiable, Hashable {
         self.x3 = x3
     }
     
-    static func getSizes(set: IconSet) -> [IconSize] {
+    static func getSizes(set: OperatingSystem) -> [IconSize] {
         switch set {
         case .iOS:
             return IconSize.iosSizes()

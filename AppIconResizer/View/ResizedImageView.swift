@@ -17,6 +17,7 @@ struct ResizedImageView: View {
     @Binding var setOs: Int
     @Binding var originalImage: NSImage?
     @Binding var isOriginalImage: Bool
+    @Binding var showResizedImage: Bool
     
     // EFFICIENT GRID DEFINITION
     let gridLayout: [GridItem] = Array(repeating: GridItem(.flexible()), count: 3)
@@ -24,7 +25,7 @@ struct ResizedImageView: View {
     // MARK: - BODY
     
     var body: some View {
-        VStack {
+        ScrollView {
             LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
                 ForEach(loadIcons(setOs)) { item in
                     if isOriginalImage {
@@ -34,11 +35,12 @@ struct ResizedImageView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 44, height: 44, alignment: .center)
-                                    .cornerRadius(10.0)
+//                                    .cornerRadius(10.0)
                                 
                                 Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x1))")
                                     .font(.footnote)
                             }
+                            .padding()
                         }
                         
                         if item.x2 == true {
@@ -47,11 +49,12 @@ struct ResizedImageView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 44, height: 44, alignment: .center)
-                                    .cornerRadius(10.0)
+//                                    .cornerRadius(10.0)
                                 
                                 Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x2))")
                                     .font(.footnote)
                             }
+                            .padding()
                         }
                         
                         if item.x3 == true {
@@ -60,11 +63,12 @@ struct ResizedImageView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 44, height: 44, alignment: .center)
-                                    .cornerRadius(10.0)
+//                                    .cornerRadius(10.0)
                                 
                                 Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x3))")
                                     .font(.footnote)
                             }
+                            .padding()
                         }
                     } else {
                         Image(systemName: "photo")
@@ -77,12 +81,15 @@ struct ResizedImageView: View {
             Spacer()
             
             if isOriginalImage {
-                Button(action: {
-                    saveIconsToFolder()
-                }) {
-                    Text("Save icons")
+                VStack(spacing: 20) {
+                    Button("Save icons") {
+                        saveIconsToFolder()
+                    }
+                    
+                    Button("Choose new image!") {
+                        showResizedImage = false
+                    }
                 }
-                .padding()
             }
         }
     }
@@ -106,7 +113,6 @@ struct ResizedImageView: View {
     }
     
     func saveIconsToFolder() {
-        
         // save the icons in folder
         print("Icons are ready to save in folder")
         
@@ -129,7 +135,6 @@ struct ResizedImageView: View {
                 if iconSize.x2 { _ = iconSize.save(originalImage!, type: RetinaType.x2, folder: folder)
                 }
                 if iconSize.x3 { _ = iconSize.save(originalImage!, type: RetinaType.x3, folder: folder)
-                    
                 }
             }
             
@@ -161,5 +166,13 @@ struct ResizedImageView: View {
             // if error use temporary directory
             tempDirectory = NSTemporaryDirectory()
         }
+    }
+}
+
+struct ResizedImageView_Previews: PreviewProvider {
+    static var previews: some View {
+        ResizedImageView(setOs: .constant(0), originalImage: .constant(NSImage(named: "AppIcon")), isOriginalImage: .constant(true), showResizedImage: .constant(true))
+//            .previewLayout(.fixed(width: 800, height: 400))
+            .previewLayout(.sizeThatFits)
     }
 }

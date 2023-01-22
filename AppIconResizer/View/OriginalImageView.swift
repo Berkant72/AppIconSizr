@@ -12,17 +12,16 @@ struct OriginalImageView: View {
     // MARK: - Properties
     
     @State private var iPhone: Bool = false
-    @State private var iPad: Bool = false
     @State private var mac: Bool = false
     @State private var appleWatch: Bool = false
     @State private var showChooseImageView = true
     
-    @Binding var setOs: Int
+    @Binding var selectedOS: Int
     @Binding var originalImage: NSImage?
     @Binding var isOriginalImage: Bool
     @Binding var showResizedImage: Bool
     
-    let iconsFor = ["iOS", "iPadOS", "macOS", "watchOS"]
+    let devices = ["iOS", "macOS", "watchOS"]
     
     var originalImageView: some View {
         VStack {
@@ -30,9 +29,10 @@ struct OriginalImageView: View {
                 getImageFromFinder()
                 
             }) {
-                Text("Click to add your original image here!")
-                    .font(.caption)
+                Text("Search for an image")
             }
+            .buttonStyle(.borderedProminent)
+            
             Text("For best result use an image\nwith 1024 x 1024 pixels.")
                 .font(.footnote)
                 .foregroundColor(.secondary)
@@ -55,10 +55,11 @@ struct OriginalImageView: View {
             Text("Choose your icon set!")
                 .font(.body).bold()
             
-            Picker("Devices", selection: $setOs) {
-                ForEach(0 ..< iconsFor.count) { item in
-                    Text("\(iconsFor[item])").tag(item)
+            Picker("Devices", selection: $selectedOS) {
+                ForEach(0..<devices.count, id: \.self) { item in
+                    Text("\(devices[item])").tag(item)
                 }
+                let _ = print("Devices \(selectedOS)")
             }
             .padding(.horizontal, 12)
             .frame(maxWidth: .infinity)
@@ -71,16 +72,16 @@ struct OriginalImageView: View {
                     showResizedImage = true
                     showChooseImageView = false
                 }
-                
             }
+            .buttonStyle(.borderedProminent)
             
             Button("Choose new image!") {
                 withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 0.5, blendDuration: 1)) {
                     showChooseImageView = true
                     //                showChooseIconSetView = false
                 }
-                
             }
+            .buttonStyle(.borderedProminent)
         }
         .onAppear {
             withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 0.5, blendDuration: 1)) {
@@ -142,6 +143,6 @@ struct OriginalImageView: View {
 
 struct OriginalImageView_Previews: PreviewProvider {
     static var previews: some View {
-        OriginalImageView(setOs: .constant(1), originalImage: .constant(NSImage(named: "AppIcon")), isOriginalImage: .constant(true), showResizedImage: .constant(false))
+        OriginalImageView(selectedOS: .constant(0), originalImage: .constant(NSImage(named: "AppIcon")), isOriginalImage: .constant(true), showResizedImage: .constant(false))
     }
 }

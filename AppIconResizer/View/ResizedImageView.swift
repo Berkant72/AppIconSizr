@@ -86,13 +86,8 @@ struct ResizedImageView: View {
                         saveIconsToFolder()
                     }
                     .buttonStyle(.borderedProminent)
-                    
-                    Button("Choose new image!") {
-                        showResizedImage = false
-                    }
-                    .buttonStyle(.borderedProminent)
+                    .padding()
                 }
-                
             }
         }
     }
@@ -185,7 +180,7 @@ struct ResizedImageView: View {
 struct ResizedImageView_Previews: PreviewProvider {
     static var previews: some View {
         ResizedImageView(selectedOS: .constant(0), originalImage: .constant(NSImage(named: "AppIcon")), isOriginalImage: .constant(true), showResizedImage: .constant(true))
-//            .previewLayout(.fixed(width: 800, height: 400))
+        //            .previewLayout(.fixed(width: 800, height: 400))
             .previewLayout(.sizeThatFits)
     }
 }

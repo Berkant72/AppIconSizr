@@ -20,7 +20,7 @@ struct ContentView: View {
     
     var originalImageView: some View {
         
-        VStack(alignment: .center, spacing: 20) {
+        VStack(spacing: 20) {
             
             Text("Original Image")
                 .modifier(PaneTitleModifier())
@@ -28,14 +28,14 @@ struct ContentView: View {
             Divider()
             
             OriginalImageView(selectedOS: $selectedOS, originalImage: $originalImage, isOriginalImage: $isOriginalImage, showResizedImage: $showResizedImage)
+            
             Spacer()
         }
-        .frame(width: 300, height: 400)
-//        .frame(minWidth: 200, idealWidth: 250, maxWidth: 300, minHeight: 150, idealHeight: 200, maxHeight: .infinity, alignment: .center)
+        .frame(width: 300)
     }
     
     var resizedImageView: some View {
-        VStack {
+        VStack(spacing: 20) {
             Text("Resized Images")
                 .modifier(PaneTitleModifier())
             
@@ -47,24 +47,35 @@ struct ContentView: View {
                 
                 ResizedImageView(selectedOS: $selectedOS, originalImage: $originalImage, isOriginalImage: $isOriginalImage, showResizedImage: $showResizedImage)
                 
+                Spacer()
             }
         }
         .frame(minWidth: 500, idealWidth: 800, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity)
     }
     
     var body: some View {
-        HStack {
-            
-            if !showResizedImage {
+        if #available(macOS 13.0, *) {
+            NavigationSplitView {
+                // Sidebar
+                List {
+                    Text("Latest icons")
+                }
+            } content: {
+                // Content
                 originalImageView
-            } else {
+            } detail: {
+                // Detail
+                resizedImageView
+            }
+            .frame(minWidth: 800, idealWidth: 1000, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity)
+        } else {
+            // Fallback on earlier versions
+            HStack {
+                originalImageView
+                Divider()
                 resizedImageView
             }
         }
-//        .frame(minWidth: 1000, idealWidth: 1200, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity, alignment: .center)
-//        .onAppear(perform: {
-//            //createNewDirectory()
-//        })
     }
 }
 

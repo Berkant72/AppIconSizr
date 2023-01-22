@@ -32,10 +32,12 @@ struct OriginalImageView: View {
                 Text("Search for an image")
             }
             .buttonStyle(.borderedProminent)
+            .padding()
             
             Text("For best result use an image\nwith 1024 x 1024 pixels.")
                 .font(.footnote)
                 .foregroundColor(.secondary)
+                .padding()
             
             if isOriginalImage {
                 Image(nsImage: originalImage!)
@@ -67,18 +69,10 @@ struct OriginalImageView: View {
             
             Spacer()
             
-            Button("Resize images!") {
-                withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 0.6, blendDuration: 1)) {
-                    showResizedImage = true
-                    showChooseImageView = false
-                }
-            }
-            .buttonStyle(.borderedProminent)
-            
             Button("Choose new image!") {
                 withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 0.5, blendDuration: 1)) {
                     showChooseImageView = true
-                    //                showChooseIconSetView = false
+                    
                 }
             }
             .buttonStyle(.borderedProminent)
@@ -102,12 +96,6 @@ struct OriginalImageView: View {
                 deviceView
             }
         }
-        //        .onAppear {
-        //            withAnimation(.interactiveSpring(response: 0.7, dampingFraction: 0.5, blendDuration: 1)) {
-        //                showChooseImageView = true
-        //            }
-        //        }
-        
     }
     
     // MARK: - Methods

@@ -11,6 +11,7 @@ struct PaneTitleModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.largeTitle)
+            .foregroundColor(.accentColor)
             .padding()
     }
 }

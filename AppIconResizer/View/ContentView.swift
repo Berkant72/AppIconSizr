@@ -11,7 +11,7 @@ struct ContentView: View {
     
     // MARK: - Properties
     
-    @State private var setOs: Int = 0
+    @State private var selectedOS: Int = 0
     @State private var originalImage: NSImage?
     @State private var isOriginalImage = false
     @State private var showResizedImage = false
@@ -27,7 +27,7 @@ struct ContentView: View {
             
             Divider()
             
-            OriginalImageView(setOs: $setOs, originalImage: $originalImage, isOriginalImage: $isOriginalImage, showResizedImage: $showResizedImage)
+            OriginalImageView(selectedOS: $selectedOS, originalImage: $originalImage, isOriginalImage: $isOriginalImage, showResizedImage: $showResizedImage)
             Spacer()
         }
         .frame(width: 300, height: 400)
@@ -45,7 +45,7 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 
-                ResizedImageView(setOs: $setOs, originalImage: $originalImage, isOriginalImage: $isOriginalImage, showResizedImage: $showResizedImage)
+                ResizedImageView(selectedOS: $selectedOS, originalImage: $originalImage, isOriginalImage: $isOriginalImage, showResizedImage: $showResizedImage)
                 
             }
         }
@@ -60,7 +60,7 @@ struct ContentView: View {
             } else {
                 resizedImageView
             }
-        } 
+        }
 //        .frame(minWidth: 1000, idealWidth: 1200, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity, alignment: .center)
 //        .onAppear(perform: {
 //            //createNewDirectory()

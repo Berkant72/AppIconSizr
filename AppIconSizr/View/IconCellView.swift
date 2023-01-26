@@ -1,6 +1,6 @@
 //
 //  IconCellView.swift
-//  AppIconResizer
+//  AppIconSizr
 //
 //  Created by Berkant Dursun on 06.12.20.
 //

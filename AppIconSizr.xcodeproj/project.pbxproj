@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E3CEE58257CF33600C6C421 /* IconCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3CEE57257CF33600C6C421 /* IconCellView.swift */; };
 		1E8DBD6725A88A5300025C71 /* PlaceholderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DBD6625A88A5300025C71 /* PlaceholderImageView.swift */; };
-		1E90879F256158110047FFCC /* AppIconResizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E90879E256158110047FFCC /* AppIconResizerApp.swift */; };
+		1E90879F256158110047FFCC /* AppIconSizrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E90879E256158110047FFCC /* AppIconSizrApp.swift */; };
 		1E9087A1256158110047FFCC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9087A0256158110047FFCC /* ContentView.swift */; };
 		1E9087A3256158110047FFCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E9087A2256158110047FFCC /* Assets.xcassets */; };
 		1E9087A6256158110047FFCC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E9087A5256158110047FFCC /* Preview Assets.xcassets */; };
@@ -22,13 +22,13 @@
 /* Begin PBXFileReference section */
 		1E3CEE57257CF33600C6C421 /* IconCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCellView.swift; sourceTree = "<group>"; };
 		1E8DBD6625A88A5300025C71 /* PlaceholderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderImageView.swift; sourceTree = "<group>"; };
-		1E90879B256158110047FFCC /* AppIconResizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppIconResizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E90879E256158110047FFCC /* AppIconResizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconResizerApp.swift; sourceTree = "<group>"; };
+		1E90879B256158110047FFCC /* AppIconSizr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppIconSizr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E90879E256158110047FFCC /* AppIconSizrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSizrApp.swift; sourceTree = "<group>"; };
 		1E9087A0256158110047FFCC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1E9087A2256158110047FFCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E9087A5256158110047FFCC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1E9087A7256158110047FFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1E9087A8256158110047FFCC /* AppIconResizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppIconResizer.entitlements; sourceTree = "<group>"; };
+		1E9087A8256158110047FFCC /* AppIconSizr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppIconSizr.entitlements; sourceTree = "<group>"; };
 		1EBC746025691CB800A3F46F /* OriginalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalImageView.swift; sourceTree = "<group>"; };
 		1EBC746325691F2100A3F46F /* ResizedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizedImageView.swift; sourceTree = "<group>"; };
 		1EBC746625691FF200A3F46F /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		1E908792256158110047FFCC = {
 			isa = PBXGroup;
 			children = (
-				1E90879D256158110047FFCC /* AppIconResizer */,
+				1E90879D256158110047FFCC /* AppIconSizr */,
 				1E90879C256158110047FFCC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,24 +57,24 @@
 		1E90879C256158110047FFCC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1E90879B256158110047FFCC /* AppIconResizer.app */,
+				1E90879B256158110047FFCC /* AppIconSizr.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1E90879D256158110047FFCC /* AppIconResizer */ = {
+		1E90879D256158110047FFCC /* AppIconSizr */ = {
 			isa = PBXGroup;
 			children = (
 				1ED06B5B25692C8400B85C3F /* Model */,
 				1EBC746B2569211F00A3F46F /* View */,
 				1EBC74692569210A00A3F46F /* Helper */,
-				1E90879E256158110047FFCC /* AppIconResizerApp.swift */,
+				1E90879E256158110047FFCC /* AppIconSizrApp.swift */,
 				1E9087A2256158110047FFCC /* Assets.xcassets */,
 				1E9087A7256158110047FFCC /* Info.plist */,
-				1E9087A8256158110047FFCC /* AppIconResizer.entitlements */,
+				1E9087A8256158110047FFCC /* AppIconSizr.entitlements */,
 				1E9087A4256158110047FFCC /* Preview Content */,
 			);
-			path = AppIconResizer;
+			path = AppIconSizr;
 			sourceTree = "<group>";
 		};
 		1E9087A4256158110047FFCC /* Preview Content */ = {
@@ -116,9 +116,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1E90879A256158110047FFCC /* AppIconResizer */ = {
+		1E90879A256158110047FFCC /* AppIconSizr */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1E9087AB256158110047FFCC /* Build configuration list for PBXNativeTarget "AppIconResizer" */;
+			buildConfigurationList = 1E9087AB256158110047FFCC /* Build configuration list for PBXNativeTarget "AppIconSizr" */;
 			buildPhases = (
 				1E908797256158110047FFCC /* Sources */,
 				1E908798256158110047FFCC /* Frameworks */,
@@ -128,9 +128,9 @@
 			);
 			dependencies = (
 			);
-			name = AppIconResizer;
-			productName = AppIconResizer;
-			productReference = 1E90879B256158110047FFCC /* AppIconResizer.app */;
+			name = AppIconSizr;
+			productName = AppIconSizr;
+			productReference = 1E90879B256158110047FFCC /* AppIconSizr.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -140,14 +140,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					1E90879A256158110047FFCC = {
 						CreatedOnToolsVersion = 12.2;
 					};
 				};
 			};
-			buildConfigurationList = 1E908796256158110047FFCC /* Build configuration list for PBXProject "AppIconResizer" */;
+			buildConfigurationList = 1E908796256158110047FFCC /* Build configuration list for PBXProject "AppIconSizr" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -160,7 +160,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1E90879A256158110047FFCC /* AppIconResizer */,
+				1E90879A256158110047FFCC /* AppIconSizr */,
 			);
 		};
 /* End PBXProject section */
@@ -187,7 +187,7 @@
 				1E9087A1256158110047FFCC /* ContentView.swift in Sources */,
 				1ED06B5925692C7E00B85C3F /* IconSize.swift in Sources */,
 				1EBC746425691F2100A3F46F /* ResizedImageView.swift in Sources */,
-				1E90879F256158110047FFCC /* AppIconResizerApp.swift in Sources */,
+				1E90879F256158110047FFCC /* AppIconSizrApp.swift in Sources */,
 				1EBC746125691CB800A3F46F /* OriginalImageView.swift in Sources */,
 				1EBC746725691FF200A3F46F /* Modifiers.swift in Sources */,
 			);
@@ -230,6 +230,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -291,6 +292,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -316,16 +318,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = AppIconResizer/AppIconResizer.entitlements;
+				CODE_SIGN_ENTITLEMENTS = AppIconSizr/AppIconSizr.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_ASSET_PATHS = "\"AppIconResizer/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 9;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"AppIconSizr/Preview Content\"";
 				DEVELOPMENT_TEAM = 2YU38T3WV9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = AppIconResizer/Info.plist;
+				INFOPLIST_FILE = AppIconSizr/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -333,7 +336,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.berkantdursun.appiconresizer;
+				PRODUCT_BUNDLE_IDENTIFIER = de.berkantdursun.appiconsizr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -344,16 +347,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = AppIconResizer/AppIconResizer.entitlements;
+				CODE_SIGN_ENTITLEMENTS = AppIconSizr/AppIconSizr.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_ASSET_PATHS = "\"AppIconResizer/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 9;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"AppIconSizr/Preview Content\"";
 				DEVELOPMENT_TEAM = 2YU38T3WV9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = AppIconResizer/Info.plist;
+				INFOPLIST_FILE = AppIconSizr/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -361,7 +365,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.berkantdursun.appiconresizer;
+				PRODUCT_BUNDLE_IDENTIFIER = de.berkantdursun.appiconsizr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -370,7 +374,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1E908796256158110047FFCC /* Build configuration list for PBXProject "AppIconResizer" */ = {
+		1E908796256158110047FFCC /* Build configuration list for PBXProject "AppIconSizr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1E9087A9256158110047FFCC /* Debug */,
@@ -379,7 +383,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1E9087AB256158110047FFCC /* Build configuration list for PBXNativeTarget "AppIconResizer" */ = {
+		1E9087AB256158110047FFCC /* Build configuration list for PBXNativeTarget "AppIconSizr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1E9087AC256158110047FFCC /* Debug */,

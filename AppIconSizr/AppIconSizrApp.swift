@@ -1,6 +1,6 @@
 //
-//  AppIconResizerApp.swift
-//  AppIconResizer
+//  AppIconSizrApp.swift
+//  AppIconSizr
 //
 //  Created by Berkant Dursun on 15.11.20.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct AppIconResizerApp: App {
+struct AppIconSizrApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -18,11 +18,11 @@ struct AppIconResizerApp: App {
         }
         .commands {
                     CommandGroup(replacing: .appInfo) {
-                        Button("About App Icon Resizer") {
+                        Button("About App Icon Sizr") {
                             NSApplication.shared.orderFrontStandardAboutPanel(
                                 options: [
                                     NSApplication.AboutPanelOptionKey.credits: NSAttributedString(
-                                        string: "Resize your custom icons for iOS, macOS and watchOS to add them into Xcode's Assets catalog.",
+                                        string: "Resize your custom app icons for iOS, macOS and watchOS to add them into Xcode's Assets catalog.",
                                         attributes: [
                                             NSAttributedString.Key.font: NSFont.boldSystemFont(
                                                                             ofSize: NSFont.smallSystemFontSize)

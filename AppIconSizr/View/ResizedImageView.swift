@@ -1,6 +1,6 @@
 //
 //  ResizedImageView.swift
-//  AppIconResizer
+//  AppIconSizr
 //
 //  Created by Berkant Dursun on 21.11.20.
 //

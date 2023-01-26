@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  AppIconResizer
+//  AppIconSizr
 //
 //  Created by Berkant Dursun on 15.11.20.
 //

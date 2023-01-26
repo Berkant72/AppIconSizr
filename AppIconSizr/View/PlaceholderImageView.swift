@@ -1,6 +1,6 @@
 //
 //  PlaceholderImageView.swift
-//  AppIconResizer
+//  AppIconSizr
 //
 //  Created by Berkant Dursun on 08.01.21.
 //

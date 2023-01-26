@@ -65,10 +65,10 @@
 		1E90879D256158110047FFCC /* AppIconSizr */ = {
 			isa = PBXGroup;
 			children = (
+				1E90879E256158110047FFCC /* AppIconSizrApp.swift */,
 				1ED06B5B25692C8400B85C3F /* Model */,
 				1EBC746B2569211F00A3F46F /* View */,
 				1EBC74692569210A00A3F46F /* Helper */,
-				1E90879E256158110047FFCC /* AppIconSizrApp.swift */,
 				1E9087A2256158110047FFCC /* Assets.xcassets */,
 				1E9087A7256158110047FFCC /* Info.plist */,
 				1E9087A8256158110047FFCC /* AppIconSizr.entitlements */,

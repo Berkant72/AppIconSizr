@@ -15,6 +15,7 @@ struct OriginalImageView: View {
     @State private var mac: Bool = false
     @State private var appleWatch: Bool = false
     @State private var showChooseImageView = true
+    @State private var buttonAnimation = false
     
     @Binding var selectedOS: Int
     @Binding var originalImage: NSImage?
@@ -24,7 +25,8 @@ struct OriginalImageView: View {
     let devices = ["iOS", "macOS", "watchOS"]
     
     var originalImageView: some View {
-        VStack {
+        VStack(alignment: .center, spacing: 8) {
+            /*
             Button(action: {
                 getImageFromFinder()
                 
@@ -33,10 +35,12 @@ struct OriginalImageView: View {
             }
             .buttonStyle(.borderedProminent)
             .padding()
+            */
             
-            Text("For best result use an image\nwith 1024 x 1024 pixels.")
-                .font(.footnote)
-                .foregroundColor(.secondary)
+            Text("Tap to the placeholder icon to search for an image.\n\nFor best result use an image with 1024 x 1024 pixels.")
+                .font(.headline)
+                .foregroundColor(.primary)
+                .multilineTextAlignment(.center)
                 .padding()
             
             if isOriginalImage {
@@ -47,8 +51,21 @@ struct OriginalImageView: View {
                     .cornerRadius(10.0)
                     .padding()
             } else {
-                PlaceholderImageView()
+                withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 0.5, blendDuration: 1)) {
+                    Button {
+                        getImageFromFinder()
+                    } label: {
+                        Label("", systemImage: "photo")
+                            .font(.system(size: 64))
+                            .foregroundColor(.accentColor)
+                        
+                    }
+                    .buttonStyle(.borderless)
+                }
             }
+        }
+        .onAppear {
+            buttonAnimation = true
         }
     }
     
@@ -68,14 +85,14 @@ struct OriginalImageView: View {
             .pickerStyle(.radioGroup)
             
             Spacer()
-            
+            /*
             Button("Choose new image!") {
                 withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 0.5, blendDuration: 1)) {
                     showChooseImageView = true
-                    
                 }
             }
             .buttonStyle(.borderedProminent)
+            */
         }
         .onAppear {
             withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 0.5, blendDuration: 1)) {

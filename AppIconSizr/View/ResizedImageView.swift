@@ -73,22 +73,24 @@ struct ResizedImageView: View {
                     } else {
                         Image(systemName: "photo")
                             .font(.system(size: 44))
+                            .foregroundColor(.secondary)
                             .frame(width: 80, height: 80, alignment: .center)
                     }
                 }
             }
             
             Spacer()
-            
-            if isOriginalImage {
-                VStack(spacing: 20) {
-                    Button("Save icons") {
-                        saveIconsToFolder()
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .padding()
-                }
-            }
+            /*
+             if isOriginalImage {
+             VStack(spacing: 20) {
+             Button("Save icons") {
+             saveIconsToFolder()
+             }
+             .buttonStyle(.borderedProminent)
+             .padding()
+             }
+             }
+             */
         }
     }
     
@@ -120,61 +122,64 @@ struct ResizedImageView: View {
         }
     }
     
-    func saveIconsToFolder() {
-        // save the icons in folder
-        print("Icons are ready to save in folder")
-        
-        let openFile = NSOpenPanel()
-        openFile.title = "Verzeichnis zum Speichern der Icons"
-        openFile.prompt = "Auswählen"
-        openFile.worksWhenModal = true
-        openFile.allowsMultipleSelection = false
-        openFile.canChooseDirectories = true
-        openFile.canChooseFiles = false
-        openFile.canCreateDirectories = true
-        openFile.resolvesAliases = true
-        openFile.runModal()
-        
-        if let url = openFile.url {
-            let folder = url.path
-            for iconSize in loadIcons(selectedOS) {
-                if iconSize.x1 { _ = iconSize.save(originalImage!, type: RetinaType.x1, folder: folder)
-                }
-                if iconSize.x2 { _ = iconSize.save(originalImage!, type: RetinaType.x2, folder: folder)
-                }
-                if iconSize.x3 { _ = iconSize.save(originalImage!, type: RetinaType.x3, folder: folder)
-                }
-            }
-            
-            // show the folder where images were saved
-            NSWorkspace.shared.activateFileViewerSelecting( [url] )
-        }
-    }
     
-    func createNewDirectory() {
-        // create a temporary directory at launch
-        let fileManager = FileManager.default
-        
-        // subfolder for resized icons in temporary directorry
-        let temp = NSString(string: NSTemporaryDirectory()).appendingPathComponent("icon-resizer")
-        
-        
-        do {
-            // delete if directory is existing
-            if fileManager.fileExists(atPath: temp)
-            {
-                try fileManager.removeItem(atPath: temp)
-            }
-            
-            // create a new directory
-            try fileManager.createDirectory(atPath: temp, withIntermediateDirectories: false, attributes: nil)
-            
-            tempDirectory = temp
-        } catch _ {
-            // if error use temporary directory
-            tempDirectory = NSTemporaryDirectory()
-        }
-    }
+    /*
+     func saveIconsToFolder() {
+     // save the icons in folder
+     print("Icons are ready to save in folder")
+     
+     let openFile = NSOpenPanel()
+     openFile.title = "Verzeichnis zum Speichern der Icons"
+     openFile.prompt = "Auswählen"
+     openFile.worksWhenModal = true
+     openFile.allowsMultipleSelection = false
+     openFile.canChooseDirectories = true
+     openFile.canChooseFiles = false
+     openFile.canCreateDirectories = true
+     openFile.resolvesAliases = true
+     openFile.runModal()
+     
+     if let url = openFile.url {
+     let folder = url.path
+     for iconSize in loadIcons(selectedOS) {
+     if iconSize.x1 { _ = iconSize.save(originalImage!, type: RetinaType.x1, folder: folder)
+     }
+     if iconSize.x2 { _ = iconSize.save(originalImage!, type: RetinaType.x2, folder: folder)
+     }
+     if iconSize.x3 { _ = iconSize.save(originalImage!, type: RetinaType.x3, folder: folder)
+     }
+     }
+     
+     // show the folder where images were saved
+     NSWorkspace.shared.activateFileViewerSelecting( [url] )
+     }
+     }
+     
+     func createNewDirectory() {
+     // create a temporary directory at launch
+     let fileManager = FileManager.default
+     
+     // subfolder for resized icons in temporary directorry
+     let temp = NSString(string: NSTemporaryDirectory()).appendingPathComponent("appiconsizr")
+     
+     
+     do {
+     // delete if directory is existing
+     if fileManager.fileExists(atPath: temp)
+     {
+     try fileManager.removeItem(atPath: temp)
+     }
+     
+     // create a new directory
+     try fileManager.createDirectory(atPath: temp, withIntermediateDirectories: false, attributes: nil)
+     
+     tempDirectory = temp
+     } catch _ {
+     // if error use temporary directory
+     tempDirectory = NSTemporaryDirectory()
+     }
+     }
+     */
 }
 
 struct ResizedImageView_Previews: PreviewProvider {

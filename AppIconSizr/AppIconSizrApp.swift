@@ -17,21 +17,21 @@ struct AppIconSizrApp: App {
                 })
         }
         .commands {
-                    CommandGroup(replacing: .appInfo) {
-                        Button("About App Icon Sizr") {
-                            NSApplication.shared.orderFrontStandardAboutPanel(
-                                options: [
-                                    NSApplication.AboutPanelOptionKey.credits: NSAttributedString(
-                                        string: "Resize your custom app icons for iOS, macOS and watchOS to add them into Xcode's Assets catalog.",
-                                        attributes: [
-                                            NSAttributedString.Key.font: NSFont.boldSystemFont(
-                                                                            ofSize: NSFont.smallSystemFontSize)
-                                        ]
-                                    ),
-                                    NSApplication.AboutPanelOptionKey(rawValue: "Copyright"): "© 2020 BERKANT DURSUN"]
-                            )
-                        }
-                    }
+            CommandGroup(replacing: .appInfo) {
+                Button("About App Icon Sizr") {
+                    NSApplication.shared.orderFrontStandardAboutPanel(
+                        options: [
+                            NSApplication.AboutPanelOptionKey.credits: NSAttributedString(
+                                string: "Resize your custom app icons for iOS, macOS and watchOS to add them into Xcode's Assets catalog.",
+                                attributes: [
+                                    NSAttributedString.Key.font: NSFont.boldSystemFont(
+                                        ofSize: NSFont.smallSystemFontSize)
+                                ]
+                            ),
+                            NSApplication.AboutPanelOptionKey(rawValue: "Copyright"): "© 2020 BERKANT DURSUN"]
+                    )
                 }
+            }
+        }
     }
 }

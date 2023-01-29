@@ -15,7 +15,6 @@ struct OriginalImageView: View {
     @State private var mac: Bool = false
     @State private var appleWatch: Bool = false
     @State private var showChooseImageView = true
-    @State private var buttonAnimation = false
     
     @Binding var selectedOS: Int
     @Binding var originalImage: NSImage?
@@ -26,46 +25,31 @@ struct OriginalImageView: View {
     
     var originalImageView: some View {
         VStack(alignment: .center, spacing: 8) {
-            /*
-            Button(action: {
-                getImageFromFinder()
-                
-            }) {
-                Text("Search for an image")
-            }
-            .buttonStyle(.borderedProminent)
-            .padding()
-            */
-            
-            Text("Tap to the placeholder icon to search for an image.\n\nFor best result use an image with 1024 x 1024 pixels.")
-                .font(.headline)
+            Text("For best result use an icon with 1024 x 1024 pixels!")
+                .font(.title2)
                 .foregroundColor(.primary)
                 .multilineTextAlignment(.center)
                 .padding()
             
-            if isOriginalImage {
-                Image(nsImage: originalImage!)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .cornerRadius(10.0)
-                    .padding()
-            } else {
-                withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 0.5, blendDuration: 1)) {
-                    Button {
-                        getImageFromFinder()
-                    } label: {
-                        Label("", systemImage: "photo")
-                            .font(.system(size: 64))
-                            .foregroundColor(.accentColor)
-                        
-                    }
-                    .buttonStyle(.borderless)
+            if #available(macOS 12.0, *) {
+                Button {
+                    getImageFromFinder()
+                } label: {
+                    Text("Load icon")
+                        .foregroundColor(.white)
+                    
                 }
+                .buttonStyle(.borderedProminent)
+            } else {
+                // Fallback on earlier versions
+                Button {
+                    getImageFromFinder()
+                } label: {
+                    Text("Load icon")
+                        .foregroundColor(.white)
+                }
+                .buttonStyle(.plain)
             }
-        }
-        .onAppear {
-            buttonAnimation = true
         }
     }
     
@@ -85,19 +69,6 @@ struct OriginalImageView: View {
             .pickerStyle(.radioGroup)
             
             Spacer()
-            /*
-            Button("Choose new image!") {
-                withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 0.5, blendDuration: 1)) {
-                    showChooseImageView = true
-                }
-            }
-            .buttonStyle(.borderedProminent)
-            */
-        }
-        .onAppear {
-            withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 0.5, blendDuration: 1)) {
-                //
-            }
         }
     }
     

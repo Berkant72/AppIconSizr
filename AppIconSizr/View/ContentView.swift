@@ -64,8 +64,8 @@ struct ContentView: View {
             .toolbar {
                 if isOriginalImage {
                     Button("Export") { saveIconsToFolder() }
+                    Button("New icon") { getImageFromFinder() }
                 }
-                Button("New icon") { getImageFromFinder() }
             }
             .frame(minWidth: 800, idealWidth: 1000, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity)
            }

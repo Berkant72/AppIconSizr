@@ -44,7 +44,6 @@ struct ContentView: View {
             
             Divider()
             
-            
             VStack {
                 Spacer()
                 
@@ -57,47 +56,19 @@ struct ContentView: View {
     }
     
     var body: some View {
-        ZStack {
-            LinearGradient(gradient: Gradient(colors: [ Color.indigo.opacity(0.8), Color.purple.opacity(0.5)]), startPoint: .topLeading, endPoint: .bottomTrailing)
-            if #available(macOS 13.0, *) {
-                NavigationSplitView {
-                    // Sidebar
-                    List {
-                        Text("Latest icons")
-                    }
-                } content: {
-                    // Content
-                    originalImageView
-                } detail: {
-                    // Detail
-                    resizedImageView
-                }
-                .toolbar {
-                    if isOriginalImage {
-                        Button("Export") { saveIconsToFolder() }
-                    }
-                    Button("New image") { getImageFromFinder() }
-                }
-                .frame(minWidth: 800, idealWidth: 1000, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity)
-                
-            } else {
-                // Fallback on earlier versions
-                HStack {
-                    originalImageView
-                    Divider()
-                    resizedImageView
-                }
-                .toolbar {
-                    if isOriginalImage {
-                        Button("Export") { saveIconsToFolder() }
-                    }
-                    
-                    
-                }
+            HStack {
+                originalImageView
+                Divider()
+                resizedImageView
             }
-        }
-        
-    }
+            .toolbar {
+                if isOriginalImage {
+                    Button("Export") { saveIconsToFolder() }
+                }
+                Button("New icon") { getImageFromFinder() }
+            }
+            .frame(minWidth: 800, idealWidth: 1000, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity)
+           }
     
     // MARK: - Methods
     
@@ -199,7 +170,7 @@ struct ContentView: View {
             
         }
     }
-
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

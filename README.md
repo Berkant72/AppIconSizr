@@ -1,4 +1,4 @@
-# AppIconSizr
+# App Icon Sizr
 
 The easiest way to resize your app icons for iOS, macOS and watchOS to use it in Xcode. Looks fine in Light Mode and Dark Mode.
 

@@ -23,12 +23,23 @@ struct ResizedImageView: View {
     let gridLayout: [GridItem] = Array(repeating: GridItem(.flexible()), count: 3)
     
     // MARK: - BODY
-    
     var body: some View {
+        if isOriginalImage {
+            icons
+        } else {
+            Image(systemName: "photo")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .foregroundColor(.secondary)
+                .frame(width: 200, height: 200, alignment: .center)
+        }
+    }
+    
+    var icons: some View {
         ScrollView {
             LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
                 ForEach(loadIcons(selectedOS)) { item in
-                    if isOriginalImage {
+           
                         if item.x1 == true {
                             VStack {
                                 Image(nsImage: originalImage!)
@@ -70,27 +81,11 @@ struct ResizedImageView: View {
                             }
                             .padding()
                         }
-                    } else {
-                        Image(systemName: "photo")
-                            .font(.system(size: 44))
-                            .foregroundColor(.secondary)
-                            .frame(width: 80, height: 80, alignment: .center)
-                    }
+                    
                 }
             }
             
             Spacer()
-            /*
-             if isOriginalImage {
-             VStack(spacing: 20) {
-             Button("Save icons") {
-             saveIconsToFolder()
-             }
-             .buttonStyle(.borderedProminent)
-             .padding()
-             }
-             }
-             */
         }
     }
     

@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var originalImage: NSImage?
     @State private var isOriginalImage = false
     @State private var showResizedImage = false
-    
+    @State private var showInfoView = false
     @State private var tempDirectory: String = ""
     
     // MARK: - Body
@@ -31,8 +31,16 @@ struct ContentView: View {
                 Button("Export") { saveIconsToFolder() }
                 Button("New icon") { getImageFromFinder() }
             }
+            Button {
+                showInfoView = true
+            } label: {
+                Label("Info", systemImage: "info.circle")
+            }
         }
         .frame(minWidth: 800, idealWidth: 1000, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity)
+        .popover(isPresented: $showInfoView) {
+            InfoView()
+        }
     }
     
     var originalImageView: some View {
@@ -171,5 +179,22 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct InfoView: View {
+    var body: some View {
+        ZStack {
+            Text("""
+**How to use:**
+
+On the left pane you can select an icon by clicking on the button. Then decide on the operating system and click on Export in the toolbar at the top right. Now you can save the different sizes of the icons to your hard drive. With the button new icon you can also select another icon.
+
+Tipp:
+For best result use an icon with 1024 X 1024 pixels. Only icons with .png, .PNG, .jpg, .JPG, .jpeg, .JPEG are allowed.
+""")
+            .padding(.horizontal, 20)
+        }
+        .frame(width: 400, height: 300, alignment: .leading)
     }
 }

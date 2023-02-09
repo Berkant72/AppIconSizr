@@ -188,9 +188,9 @@ struct InfoView: View {
             Text("""
 **How to use:**
 
-On the left pane you can select an icon by clicking on the button. Then decide on the operating system and click on Export in the toolbar at the top right. Now you can save the different sizes of the icons to your hard drive. With the button new icon you can also select another icon.
+On the left pane you can select an icon by clicking on the Load icon button. Then decide on the operating system and click on Export in the toolbar at the top right. Now you can save the different sizes of the icons to your hard drive. With the button new icon you can also select another icon.
 
-Tipp:
+Tip:
 For best result use an icon with 1024 X 1024 pixels. Only icons with .png, .PNG, .jpg, .JPG, .jpeg, .JPEG are allowed.
 """)
             .padding(.horizontal, 20)

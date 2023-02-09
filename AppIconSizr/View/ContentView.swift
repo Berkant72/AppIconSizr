@@ -18,8 +18,22 @@ struct ContentView: View {
     
     @State private var tempDirectory: String = ""
     
-    
     // MARK: - Body
+    
+    var body: some View {
+        HStack {
+            originalImageView
+            Divider()
+            resizedImageView
+        }
+        .toolbar {
+            if isOriginalImage {
+                Button("Export") { saveIconsToFolder() }
+                Button("New icon") { getImageFromFinder() }
+            }
+        }
+        .frame(minWidth: 800, idealWidth: 1000, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity)
+    }
     
     var originalImageView: some View {
         
@@ -54,21 +68,6 @@ struct ContentView: View {
         }
         .frame(minWidth: 500, idealWidth: 1000, maxWidth: .infinity, minHeight: 600, idealHeight: 1200, maxHeight: .infinity)
     }
-    
-    var body: some View {
-            HStack {
-                originalImageView
-                Divider()
-                resizedImageView
-            }
-            .toolbar {
-                if isOriginalImage {
-                    Button("Export") { saveIconsToFolder() }
-                    Button("New icon") { getImageFromFinder() }
-                }
-            }
-            .frame(minWidth: 800, idealWidth: 1000, maxWidth: .infinity, minHeight: 600, idealHeight: 800, maxHeight: .infinity)
-           }
     
     // MARK: - Methods
     
@@ -150,28 +149,24 @@ struct ContentView: View {
         openPanel.canChooseFiles = true
         openPanel.allowsMultipleSelection = false
         openPanel.resolvesAliases = true
-        //        openPanel.allowedFileTypes = ["png", "jpg", "jpeg", "PNG", "JPEG", "JPG"]
         openPanel.allowedContentTypes = [.png, .jpeg]
         
-        if (openPanel.runModal() == NSApplication.ModalResponse.OK) {
+        if (openPanel.runModal() == .OK) {
             let result = openPanel.url
-            if (result != nil) {
+            if (result?.pathExtension != "") {
                 let path: String = result!.path
-                print(path)
                 originalImage = NSImage(contentsOf: URL(fileURLWithPath: path))!
-                
-                // isOriginalImage = true
-                // showChooseImageView = false
+                isOriginalImage = true
             } else {
                 // User clicked on cancel
-                // showChooseImageView = true
                 return
             }
             
         }
     }
-    
 }
+
+// MARK: - Previews
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

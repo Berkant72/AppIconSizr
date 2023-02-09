@@ -28,7 +28,7 @@ struct AppIconSizrApp: App {
                                         ofSize: NSFont.smallSystemFontSize)
                                 ]
                             ),
-                            NSApplication.AboutPanelOptionKey(rawValue: "Copyright"): "© 2020 BERKANT DURSUN"]
+                            NSApplication.AboutPanelOptionKey(rawValue: "Copyright"): "© 2023 BERKANT DURSUN"]
                     )
                 }
             }

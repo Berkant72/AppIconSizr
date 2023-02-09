@@ -23,6 +23,7 @@ struct ResizedImageView: View {
     let gridLayout: [GridItem] = Array(repeating: GridItem(.flexible()), count: 3)
     
     // MARK: - BODY
+    
     var body: some View {
         if isOriginalImage {
             icons
@@ -39,48 +40,48 @@ struct ResizedImageView: View {
         ScrollView {
             LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
                 ForEach(loadIcons(selectedOS)) { item in
-           
-                        if item.x1 == true {
-                            VStack {
-                                Image(nsImage: originalImage!)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: getPlaceholderSize(for: item.sideLength, and: 1), height: getPlaceholderSize(for: item.sideLength, and: 1), alignment: .center)
-                                    .cornerRadius(10.0)
-                                
-                                Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x1))")
-                                    .font(.footnote)
-                            }
-                            .padding()
+                    
+                    if item.x1 == true {
+                        VStack {
+                            Image(nsImage: originalImage!)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: getPlaceholderSize(for: item.sideLength, and: 1), height: getPlaceholderSize(for: item.sideLength, and: 1), alignment: .center)
+                                .cornerRadius(10.0)
+                            
+                            Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x1))")
+                                .font(.footnote)
                         }
-                        
-                        if item.x2 == true {
-                            VStack {
-                                Image(nsImage: originalImage!)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: getPlaceholderSize(for: item.sideLength, and: 2), height: getPlaceholderSize(for: item.sideLength, and: 2), alignment: .center)
-                                    .cornerRadius(10.0)
-                                
-                                Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x2))")
-                                    .font(.footnote)
-                            }
-                            .padding()
+                        .padding()
+                    }
+                    
+                    if item.x2 == true {
+                        VStack {
+                            Image(nsImage: originalImage!)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: getPlaceholderSize(for: item.sideLength, and: 2), height: getPlaceholderSize(for: item.sideLength, and: 2), alignment: .center)
+                                .cornerRadius(10.0)
+                            
+                            Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x2))")
+                                .font(.footnote)
                         }
-                        
-                        if item.x3 == true {
-                            VStack {
-                                Image(nsImage: originalImage!)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: getPlaceholderSize(for: item.sideLength, and: 3), height: getPlaceholderSize(for: item.sideLength, and: 3), alignment: .center)
-                                    .cornerRadius(10.0)
-                                
-                                Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x3))")
-                                    .font(.footnote)
-                            }
-                            .padding()
+                        .padding()
+                    }
+                    
+                    if item.x3 == true {
+                        VStack {
+                            Image(nsImage: originalImage!)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: getPlaceholderSize(for: item.sideLength, and: 3), height: getPlaceholderSize(for: item.sideLength, and: 3), alignment: .center)
+                                .cornerRadius(10.0)
+                            
+                            Text("\(IconSize.iconName(prefix: "icon_", sideLength: item.sideLength, type: RetinaType.x3))")
+                                .font(.footnote)
                         }
+                        .padding()
+                    }
                     
                 }
             }
@@ -176,6 +177,8 @@ struct ResizedImageView: View {
      }
      */
 }
+
+// MARK: - Previews
 
 struct ResizedImageView_Previews: PreviewProvider {
     static var previews: some View {
